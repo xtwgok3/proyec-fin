@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <head> 
+    <div th:replace= "/fragments/head :: head"></div>
+    <title>Error</title>
+    <link rel="stylesheet" href="/css/formulario.css">
+    </head>
+    
+    <style th:replace="/fragments/style :: style"></style>
+    
+
+    <body style=" background: lightgray">
+
+        <header th:replace="/fragments/header :: header"></header>
+
+        <header class="header">
+            <section class="contenedorMain">
+                
+                <div style="text-align: center" class="tituloBiblioteca">
+                    <h1>Manejo de Errores</h1>
+                    <h1 class="navbar-brand" th:text="'Error ' + ${codigo}"></h1>
+                    
+                    <p style="font-size: 40px" class="tituloLibros" th:text="${mensaje}"></p> 
+                    <h1  class="navbar-brand" th:text="'Error no hay error'"></h1>
+                    
+                    
+                </div>
+                
+                <section class="text-center container">
+			<div class="row mt-3">
+				<div class="divVolver">
+				<a th:href="@{/}" class="btn btn-secondary my-2 botonVolver botones">Volver</a>
+				</div>
+			</div>
+		</section>
+                
+                <div class="container contenedorLibros">
+                    <p class="tituloLibros" th:if="${session.usuariosession != null}" th:text=" 'Hola de vuelta '+ ${session.usuariosession.nombre} "></p>  
+                </div>
+                
+                <div class="bg-circle-1 bg-circle"></div>
+                <div class="bg-circle-2 bg-circle"></div>
+                <div class="bg-circle-3 bg-circle"></div>
+                <div class="bg-circle-4 bg-circle"></div>
+                
+            </section>
+        </header>
+
+</body>
+
+</html>
